@@ -25,11 +25,12 @@ Para iniciar un proyecto con git se debe seleccionar una carpeta que se converti
    
    `$ cd <nombreArchivoProyecto>`
 
->*Se crea una carpeta que tendra el identificador `(MAIN)`, esto indica que el archivo es el repositorio principal de nuestro proyecto.*
 
 2. `$ cd <nombreArchivoProyecto>`
    
    `$ git init` 
+
+>*Se crea una carpeta que tendra el identificador `(MAIN)`, esto indica que el archivo es el repositorio principal de nuestro proyecto.*
 
    ![alt](https://www.espai.es/blog/wp-content/uploads/2021/05/rama-master-con-commit-git-1.jpg)
 
@@ -46,8 +47,22 @@ Un archivo ha sido creado, eliminado o modificado dentro el repositorio. `Git` i
 * `Untracked` si un archivo se crea o añade
 ### STAGED:
 Utilizando el comando `$git add <archivo.ext>` el archivo pasa a un estado de `Stage`. Este estado indica que el archivo se encuentra **PREPARADO** para realizar un commit y guardar los cambios en el repositorio principal del proyecto. 
-`$ git add .` para añadir todos los archivos de la carpeta a `Stage`
+`$ git add .` para añadir todos los archivos de la carpeta a `Stage`*(esto puede ser una mala practica a veces, pues habra circunstancias donde NO todas las modificaciones seran añadidas)* 
+
+`$ git restore --staged <archivo>` saca al archivo del area de stage.
+
+`$ git restore --staged .` saca todos los archivos del area de stage.
 ### COMMITED:
-El comando `$ git commit` guarda finalemente el archivo en el repositorio principal del proyecto (local o remoto). Al ejecutar con commit, se debe añadir una descripcion clara sobre que se hizo en el commit con respecto al proyecto. Para esto, git abre una ventana emergente donde se pide añadir esa descripcion. Otra forma de realizar esto es `$ git commit -m "descripcion del Commit"`
+El comando `$ git commit` guarda finalemente el archivo en el repositorio principal del proyecto (local o remoto), *`"Es como guardar un checkpoint en un juego"`*. Al ejecutar un commit, se debe añadir una descripcion clara sobre que se hizo en el commit con respecto al proyecto. Para esto, git abre una ventana emergente donde se pide añadir esa descripcion. Otra forma de realizar esto es `$ git commit -m "descripcion del Commit"`
+
+`$git commit --amend - m "descripcion"` permite reescribir el ultimo commit
 
 ![alt text](image.png)
+
+`$ git log` muestra el historial de los commits, donde en primer lugar se encuentra el ultimo commit(HEAD) realizado y en ultimo lugar se encuentra el primer commit ejecutado del proyecto o rama.
+> `(HEAD)` indica la posicion o commit actual en la que estamos. 
+> Podemos movernos entre commits:
+> 
+> `$git checkout <nombreRama o hashCommit>`:Permite cambiar de rama incluso si tienes cambios sin confirmar
+>
+> `$git switch <nomreRama o hashCommit>`:No permite cambiar de rama si tienes cambios sin confirmar
