@@ -1,5 +1,6 @@
 # APUNTES CURSO GIT/GITHUB SCESI 
 ![alt](https://media.licdn.com/dms/image/C561BAQEF5kPCrx_iQA/company-background_10000/0/1583926086892?e=2147483647&v=beta&t=Ejy1pJNHdYyknShdfCVbohGdW6bBQXGBhCcehD7VmlA)
+---
 # Clase 1:
 ## Que es un Controlador de Versiones?
 Es un sistema que regitra cada cambio que se hace al codigo fuente de un proyecto en un repositorio.
@@ -61,8 +62,87 @@ El comando `$ git commit` guarda finalemente el archivo en el repositorio princi
 
 `$ git log` muestra el historial de los commits, donde en primer lugar se encuentra el ultimo commit(HEAD) realizado y en ultimo lugar se encuentra el primer commit ejecutado del proyecto o rama.
 > `(HEAD)` indica la posicion o commit actual en la que estamos. 
-> Podemos movernos entre commits:
-> 
-> `$git checkout <nombreRama o hashCommit>`:Permite cambiar de rama incluso si tienes cambios sin confirmar
->
-> `$git switch <nomreRama o hashCommit>`:No permite cambiar de rama si tienes cambios sin confirmar
+> Podemos movernos entre commits.
+---
+# Clase 2:
+## Que es una Rama?
+Es la bifurcacion de un commit donde se tiene una linea de trabajo distinta a la rama Main, que posteriormente se volvera a unir (o no) con esta. Las ramas sirven para realizar un desarrollo paralelo, no lineal y colaborativo.
+Antes de crear una rama, necesitamos esta posicionados en un commit.
+
+* `$ git branch <nombreRama>`: creamos una nueva rama
+* `$ git checkout -b <nombreRama>`: creamos una nueva rama y nos posicionamos sobre ella
+  - `$ git branch`: devuelve una lista de todas las ramas que tenemos
+
+* `$git checkout <nombreRama o hashCommit>`:Permite cambiar de rama incluso si tienes cambios sin confirmar
+
+* `$git switch <nomreRama o hashCommit>`:No permite cambiar de rama si tienes cambios sin confirmar
+
+![alt text](image-1.png)
+
+>Al crear una rama a partir de un commit, el ID o hash del primer commit de la rama creada, es una copia del commit del que se obtuvo dicha rama
+
+## Fusion de Ramas (MERGE)
+las ramas pueden terminar en el olvido o fusionarse, integrando los cambios realizados con otra rama.
+
+`$ git merge <nombreRama>`: Fusiona la rama que indicamos con la rama en la que estamos posicionados, realizando un commit.
+
+`$ git merge --edit <nombreRama>`: Permite añadir una descripicion como en los commits
+
+`$ git merge --no-commit <nombreRama>`: Evita que se haga el commit automatico del merge
+
+![alt](https://res.cloudinary.com/practicaldev/image/fetch/s--7lvYimJG--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://cl.ly/430Q2w473e2R/Image%25202018-04-30%2520at%25201.07.58%2520PM.png)
+
+## Elimnar Ramas
+Se eliminan ramas como una buena practica para mantener limpio el espacio de trabajo, pues, una rama debe tener un unico proposito y corto de tiempo.
+
+`$ git branch -d <nombreRama>`: Elmina la rama
+
+`$ git branch --delete <nombreRama>`: Elimina una rama
+
+>Git detecta cuando queremos eliminar una rama, por lo tanto nos da una advertensia si esa rama no fue fusionada con el main.
+Este mensaje no aparece con las ramas que fueron fusionadas con la rama **main**
+
+`$ git branch -D <nombreRama>`:Elimina de manera forzada la rama 
+
+#### UNA RAMA ELIMINADA NO PUEDE SER RECUPERADA
+>*"Un truco para recuperar una rama seria mediante el historial de commits desde github"*
+## Historial
+Existen diferentes comando para acceder al historial de los commits realizados en todo el proyecto o sobre solo una rama.
+
+* `git log <nombreRama>`:Ver el historial de commits de una rama especifica
+* `git log`:Ver el historial de commits de todas las ramas
+* `git log --graph`:Ver el historial de commits con graficos 
+* `git log --oneline`:Ver el historial de commits de manera simplificada
+* `git log --graph --online`:Ver el historial de commits de manera simplificada con graficos
+
+ ## CONFLICTOS EN GIT
+ Tenemos conflictos cuando queremos unir dos ramas que tienen modificaciones diferentes en las mismas lineas de codigo. Por lo tanto, GIT no es capaz de detenrmiar que camvio es el que tiene que prevalecer, por lo tanto es el usuario quien debe escoger el cambio que se queda.
+ ![alt text](image-3.png)
+
+ ----
+# Clase 3: 
+## Navegando por GitHub
+* GitHub es una web que almacena repositorios remotos.
+* En GitHub no solo podemos encontrar repositorios, tambien podemos encontrar personas, proyectos y organizaciones
+* En un repositorio de git podemos encontrar diferentes apartados como:
+  * `Code:` Donde se visualizan los archivos que componen al repositorio, codigo fuente y sus historial de commits
+  * `Pull Request:`Es como un hilo de Twitter donde se ve la interaccion de personas que presentan commits que quieren subir al main pero necesitan autorizacion
+  * `Actions:`Permite automatizar tareas de desarrollo, pruebas y despliegue
+  * `Issues:`Aqui se observa el seguimiento de problemas, errores y tareas pendientes
+  * `Proyects:`Organiza y gestiona el trabajo del proyecto en tableros
+  * `Wiki:` En esta seccion se documenta el proyecto 
+  * `Security:`Esta seccion proporciona herramientas para proteger el proyecto
+![alt text](image-4.png)
+## Enlazar un repositorio Local con uno Remoto
+Primeramente necesitamos tener ciertas configuraciones en nuestro git Local para poder sincronizarnos
+* `$ git config --global user.name "tuNombre"`
+* `$ git config --global user.email "tuCorreoElectronico"`
+>*Estas configuraciones globales de git mantienen un seguimiento de quien hizo un commit.*
+
+* `$ git push origin main`:Envia los commits del repositorio local al repositorio remoto de GitHub
+* `$ git push -f origin main`:Fuerza el envio del push
+* `$ git clone <URLrepositorio>`: Un repositoirio cuenta con 2 tipos de url, HTTPS y SSH, este ultimo necesita un token para realizar la sincronizacion del repositorio como una forma de seguridad.
+* `$ git push origin <nombreRama>`: Se crea una rama local que se sincroniza con el repositorio remoto.
+* `$ git push --all`: Sube todas nuestras ramas al repositorio remoto
+*  
+![alt text](image-5.png)
