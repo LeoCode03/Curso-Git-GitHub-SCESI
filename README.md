@@ -144,5 +144,12 @@ Primeramente necesitamos tener ciertas configuraciones en nuestro git Local para
 * `$ git clone <URLrepositorio>`: Un repositoirio cuenta con 2 tipos de url, HTTPS y SSH, este ultimo necesita un token para realizar la sincronizacion del repositorio como una forma de seguridad.
 * `$ git push origin <nombreRama>`: Se crea una rama local que se sincroniza con el repositorio remoto.
 * `$ git push --all`: Sube todas nuestras ramas al repositorio remoto
-*  
-![alt text](image-5.png)
+* `$ git branch -a`:Lista todas ramas locales(en verde) y las ramas remotas(en rojo)
+* `$ git fetch `:Trae los punteros del repositorio remoto sin sincronizarlos con el Local.
+* `$ git remote prune origin`:Elimina las ramas remotas eliminadas del local
+* `$ git remote remove origin`: Desvincula la conexion del repositorio Local con el remoto
+> La palabra origin, no es obligatoria, puede usarse otro nombre indicativo de la rama principal
+![alt text](image-7.png)
+
+### Tags:
+ son etiquetas en los commits, sirver para no buscar por id o hash del commit, se buscar por etiqueta definida o tag.
