@@ -153,3 +153,19 @@ Primeramente necesitamos tener ciertas configuraciones en nuestro git Local para
 
 ### Tags:
  son etiquetas en los commits, sirver para no buscar por id o hash del commit, se buscar por etiqueta definida o tag.
+
+ # Clase 4:
+ ## Push, Pull & Pull Request
+
+### **`git push`**: Para mandar del Local al Remoto (empujar)
+`$ git push origin main`
+* `$ git push origin <nombreRama>:main`: envia un push de una rama al main
+ * `$ git push origin --delete <ramaRemota>`: Elimina una rama remota desde el repositorio remoto en git
+ * `$ git push origin <rama1> <rama2> <ramaN>`: Se suben las ramas especificadas
+### **`git pull`**: Para traer del Remoto al Local (jalar)
+`$ git pull origin main`
+* `$ git pull --all`: trae los camvios por unicidad a cada rama
+### **`Pull Request`**: Es una peticion de cambios que se envian al repositorio remoto
+* Se realiza desde GitHub
+Buenas practicas de PR son, commits pequeños y detallados, ser claro y concreto en los mensajes del PR. Podras recibir feedback o no, al igual que tu PR puede ser rechazado.
+![alt text](image-2.png)
