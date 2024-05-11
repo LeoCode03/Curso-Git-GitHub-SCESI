@@ -236,8 +236,18 @@ Es como una mezcla de Git Flow y Trunk, sin embargo es necesario tener una base 
 
   ![alt text](image-15.png)
 # Clase 7:
-## Comandos Destructivos y No Destructivos
+## En que casos deshacemos cambios?
+![alt text](image-13.png)
 
+* Dejo de funcionar el proyecto
+* Queremos recuperar una parte del codigo que eliminamos
+* Queremos recuperar un archivo eliminado
+### Comando Destructivos
+> **Afectan el historial de commits realizados**
+* `$ git reset soft <hashCommit>`: Decarta los commits pero mantiene los cambios que ocurrieron antes de hacer commit
+* `$ git reset hard <hashCommit>`: Descarta los commits anteriores, es decir elimina los commits anteriores al volver a un commit pasado
+### Comandos NO Desctructivos
+> **Trabajan en base al historial sin afectarlo**
 # Clase 8:
 ## Hooks, Alias y trucos de Git
 ## Hook
