@@ -19,6 +19,8 @@ Esto permite un historial detallado:
 Es un controlador de versiones que permite trabajar localmente en un proyecto que esta distribuido entre varias personas que desarrollan un proyecto de software de manera remota.
 > *"Cada quien trabaja en una parte del proyecto localmente y los cambios importantes se suben a un repositorio remoto donde se encuentra el proyecto"*
 > ![alt](https://www.nettix.com.pe/wp-content/uploads/2020/02/img-1024x511.png)
+>
+
 **Un repositorio es un carpeta donde se almacena un proyecto con sus respectivos cambios y su historico. Estos repositorios pueden ser Locales o Remotos**
 # INICIAR UN PROYECTO CON GIT
 Para iniciar un proyecto con git se debe seleccionar una carpeta que se convertira en el repositorio. Todos archivos que contenga esta carpeta seran los elementos que componen al proyecto. Existen dos maneras para iniciar nuestro proyecto con Git:
@@ -117,6 +119,7 @@ Existen diferentes comando para acceder al historial de los commits realizados e
 
  ## CONFLICTOS EN GIT
  Tenemos conflictos cuando queremos unir dos ramas que tienen modificaciones diferentes en las mismas lineas de codigo. Por lo tanto, GIT no es capaz de detenrmiar que camvio es el que tiene que prevalecer, por lo tanto es el usuario quien debe escoger el cambio que se queda.
+
  ![alt text](image-3.png)
 
  ----
@@ -149,8 +152,8 @@ Primeramente necesitamos tener ciertas configuraciones en nuestro git Local para
 * `$ git remote prune origin`:Elimina las ramas remotas eliminadas del local
 * `$ git remote remove origin`: Desvincula la conexion del repositorio Local con el remoto
 > La palabra origin, no es obligatoria, puede usarse otro nombre indicativo de la rama principal
+> 
 ![alt text](image-7.png)
-
 ### Tags:
  son etiquetas en los commits, sirver para no buscar por id o hash del commit, se buscar por etiqueta definida o tag.
 
@@ -168,9 +171,10 @@ Primeramente necesitamos tener ciertas configuraciones en nuestro git Local para
 ### **`Pull Request`**: Es una peticion de cambios que se envian al repositorio remoto
 * Se realiza desde GitHub
 Buenas practicas de PR son, commits pequeños y detallados, ser claro y concreto en los mensajes del PR. Podras recibir feedback o no, al igual que tu PR puede ser rechazado.
+
 ![alt text](image-2.png)
 
-# Clase 5 
+# Clase 5: 
 ## Git Flow
 Es un modelo o estructura de trabajo para proyecto usando git. Donde su enfoque es en tener diferentes ramas con diferentes propositos
 ### Características principales:
@@ -179,6 +183,7 @@ Es un modelo o estructura de trabajo para proyecto usando git. Donde su enfoque 
   - **Feature**: Caracteristicas nuevas para el proyecto 
   - **Release**: Cambios de ultimo momento
   - **Hotfix**: Parches o bugs pequeños para arreglar
+  
 ![alt text](image-6.png)
 
 ## Trunk Based Development
@@ -195,3 +200,86 @@ Es como una mezcla de Git Flow y Trunk, sin embargo es necesario tener una base 
 * `Show`: Se abre una peticion de cambios para que sean revisados por Controller Integration pero se fusionan inmediatamente.
 * `Ask`: Se abre un PR para discutir sobre los cambios antes de fusionarlos
 ![alt text](https://miro.medium.com/v2/resize:fit:1400/1*Ao8VcZiFjWknrXi1r1p6BQ.jpeg)
+
+# Clase 6:
+## Buenas Practicas en Git
+
+![alt text](image-14.png)
+### Para que sirven las buenas practicas en Git?
+* Es un estandar menajado por la mayoria de desarrolladores
+* Evitan y Resuelven mas rapido los conflictos
+* El historial de commits es mas legible
+#### Algunas Buenas Practicas son:
+* `COMMITS`
+  * Los commits deben ser pequeños pero con mejoras o acciones significativas
+  * Usar sufijos como:
+    *  `feat`:para nueva caracteristica
+    *  `fix`:para un bug 
+    *  `docs`para cambios en la documentacion
+    *  `test`:para tests
+    *  `refactor`:para refactorizar codigo
+    *  `perl`:para cambios quemejoren el rendimiento
+    *  `ci`:para cambios en la integracion continua
+    *  `style`: para cambiosen el formato de tabulacion, espacios o puntos y comas
+   
+   `feat(backend): add filter for cars`
+
+   `fix(web): remove wrong color`
+  * No usar puntos finales nu suspensivos en los mensaje
+  * Usar como maximo 50 caracteres para el mensaje del commit que sea bastante significativo
+  * Usar prefijos para los commits que los haga mas semanticos
+* `RAMAS`
+  * Ser consistente al nombrar ramas
+  * Usar el nombre de la accion que se realizara en la rama
+
+  `bug/avoid-creating-lead-twice-feature/add-new-user-form-experiment`
+
+  ![alt text](image-15.png)
+# Clase 7:
+## Comandos Destructivos y No Destructivos
+
+# Clase 8:
+## Hooks, Alias y trucos de Git
+## Hook
+Son secuencias de comandos que se ejecutan automaticamente en respuesta a eventos especificos. Con ellos podemos automatizar ciertos procesos
+Estos se encuentran en la carpeta oculta `.git` 
+>Para crear un `Hook` se debe crear un archivo usando algun lenguaje de programacion dentro de la carpeta ocualta de git `.git/hooks`
+### Hooks del lado del cliente (LOCAL)
+* `prepare-commit-msg`: Para modificar el mensaje del commit o añadir informacion extra
+* `commit-msg`: Se ejecuta antes de confirmar un cambio, se usa para verificar el mensaje del commit
+* `pre-commit`:Se ejecuta antes de que se cree un nuevo commit. Se usa para hacer pruebas de codigo antes de confirmar los cambios
+* `post-commit`: Se ejecuta despues de que se ha creado un nuevo commit. Se usa para notificar el commit hecho mediante SLACK
+* `pre-push`: Se ejecuta antes de que se realice un push. Se usa para realizar pruebas antes de enviar los cambios al servidor remoto
+* `post-merge`: Se ejecuta despues de que se completa una fusion. Se utiliza para actualizar dependencias o limpiar el entorno de trabajo(eliminar ramas).
+  
+>Existen muchos mas, es cuestion de investigar que hace cada uno de ellos y si te sirve para tu entorno de trabajo
+* LOS HOOKS SON PERSONALES LO CUAL PODRIA TRAER CONFLICTOS EN UN DESARROLLO EN EQUIPO
+### Hooks del lado del Servidos (REMOTO) 
+* `prep-recive`: Se ejecuta antes de aceptar cambios en el repositorio remoto. Sirve para comprobar que los commits tengan permisos necesarios y esten bien formados
+* `update`: Se ejecuta cuando una referencia esta siendo actualizada en el repositorio remoto. 
+* `post-recive`: Se ejecuta despues de que los acmbios han sido aplicados al repositorio remoto. Envia un correro a todos los usarios del repositorio indicando que se han grabado nuevos cambios
+
+![alt text](image-10.png)
+> Los `GitHub Actions` son como los `Hooks` pero estos son propios de GitHub
+## Alias
+Permiten asignar un nombre a una serie de comandos git. Es decir, si un comando de git es demasiado largo, se le puede asignar un alias con un nombre descriptivo mas corto para ser usado en posteriores ejecuciones.
+
+`$ git config --global alias.[nombreAlias] "comando a ejecutar"`
+
+![alt text](image-11.png)
+
+## Trucos en Git
+### Guarda cambios temporales
+* `$ git stash`: Guarda temporalmente cambios locales.
+* `$ git stash -u`: Guarda todos los cambios, incluidos los no rastreados.
+* `$ git stash pop`: Aplica y elimina cambios guardados.
+### Aplica cambios de commits específicos
+* `$ git cherry-pick <SHA>`: Aplica cambios de un commit específico.
+### Detecta qué commit causó un bug
+* `$ git bisect`: Encuentra qué commit introdujo un bug.
+* `$ git bisect start`: Inicia la búsqueda binaria.
+* `$ git bisect bad`: Marca un commit como malo.
+* `$ git bisect good`: Marca un commit como bueno.
+* `$ git bisect reset`: Finaliza la búsqueda binaria.
+
+![alt text](image-12.png)
