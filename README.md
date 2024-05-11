@@ -169,3 +169,28 @@ Primeramente necesitamos tener ciertas configuraciones en nuestro git Local para
 * Se realiza desde GitHub
 Buenas practicas de PR son, commits pequeños y detallados, ser claro y concreto en los mensajes del PR. Podras recibir feedback o no, al igual que tu PR puede ser rechazado.
 ![alt text](image-2.png)
+
+# Clase 5 
+## Git Flow
+## Git Flow
+Es un modelo o estructura de trabajo para proyecto usando git. Donde su enfoque es en tener diferentes ramas con diferentes propositos
+### Características principales:
+- **Main**:Contiene el codigo de produccion del proyecto
+- **Develop**:Contiene el codigo de Pre-Produccion que todavia tiene que ser probada y validada. Son las Ramas que deben ser probadas para fusionar con el Main. Estas se dividen en:
+  - **Feature**: Caracteristicas nuevas para el proyecto 
+  - **Release**: Cambios de ultimo momento
+  - **Hotfix**: Parches o bugs pequeños para arreglar
+![alt text](image-6.png)
+
+## Trunk Based Development
+Aplica un enfoque de tal manera que el proyecto se centre en una sola rama principal (`Trunk`). A diferencia de Git Flow que utiliza multiples ramas para diferentes propositos.
+La union de commits a la rama principal se hace unicamente mediante Pull Requests. 
+![alt text](image-9.png)
+
+## Ship/Show/Ask
+> ***"UN GRAN PODER CONLLEVA UNA GRAN RESPOSABILIDAD"***
+Es como una mezcla de Git Flow y Trunk, sin embargo es necesario tener una base solida de CI/CD.
+* `Ship`: Se trata de enviar los commits directamente sobre produccion
+* `Show`: Se abre una peticion de cambios para que sean revisados por Controller Integration pero se fusionan inmediatamente.
+* `Ask`: Se abre un PR para discutir sobre los cambios antes de fusionarlos
+![alt text](image-10.png)
