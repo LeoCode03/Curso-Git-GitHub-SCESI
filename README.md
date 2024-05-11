@@ -172,7 +172,6 @@ Buenas practicas de PR son, commits pequeños y detallados, ser claro y concreto
 
 # Clase 5 
 ## Git Flow
-## Git Flow
 Es un modelo o estructura de trabajo para proyecto usando git. Donde su enfoque es en tener diferentes ramas con diferentes propositos
 ### Características principales:
 - **Main**:Contiene el codigo de produccion del proyecto
@@ -185,12 +184,14 @@ Es un modelo o estructura de trabajo para proyecto usando git. Donde su enfoque 
 ## Trunk Based Development
 Aplica un enfoque de tal manera que el proyecto se centre en una sola rama principal (`Trunk`). A diferencia de Git Flow que utiliza multiples ramas para diferentes propositos.
 La union de commits a la rama principal se hace unicamente mediante Pull Requests. 
-![alt text](image-9.png)
+
+![alt text](image-8.png)
 
 ## Ship/Show/Ask
 > ***"UN GRAN PODER CONLLEVA UNA GRAN RESPOSABILIDAD"***
+
 Es como una mezcla de Git Flow y Trunk, sin embargo es necesario tener una base solida de CI/CD.
 * `Ship`: Se trata de enviar los commits directamente sobre produccion
 * `Show`: Se abre una peticion de cambios para que sean revisados por Controller Integration pero se fusionan inmediatamente.
 * `Ask`: Se abre un PR para discutir sobre los cambios antes de fusionarlos
-![alt text](image-10.png)
+![alt text](https://miro.medium.com/v2/resize:fit:1400/1*Ao8VcZiFjWknrXi1r1p6BQ.jpeg)
