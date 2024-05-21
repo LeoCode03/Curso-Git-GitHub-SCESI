@@ -159,7 +159,8 @@ Primeramente necesitamos tener ciertas configuraciones en nuestro git Local para
 
  # Clase 4:
  ## Push, Pull & Pull Request
-
+ ####`git remote add origin <url repositorioNuevo>`
+ ####`git push origin main`
 ### **`git push`**: Para mandar del Local al Remoto (empujar)
 `$ git push origin main`
 * `$ git push origin <nombreRama>:main`: envia un push de una rama al main
